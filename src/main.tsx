@@ -9,22 +9,29 @@ import { TemplateSection } from "./features/TemplateSection";
 import { Preview } from "./features/Preview";
 import { Footer } from "./features/Footer";
 
-import { type Template } from "./features/template";
+import { templates, type Template, type Tag } from "./features/template";
 
 const App = () => {
-  const [template, setTemplate] = useState<Template>({
-    context: [],
-    subject: [],
-    place: [],
-  });
+  const [template, setTemplate] = useState<Template>(templates["なし"]);
 
-  const onUpdateTemplate = useCallback(
-    (type: keyof Template, index: number) => (value: string) => {
-      setTemplate((prev) => {
-        const newTemplate = { ...prev };
-        newTemplate[type][index] = value;
-        return newTemplate;
-      });
+  const onUpdateTag = useCallback(
+    (type: keyof Template) => (index: number) => (value: Tag) => {
+      setTemplate((prev) => ({
+        ...prev,
+        [type]: prev[type]
+          .map((tag, i) => (i === index ? value : tag))
+          .concat(index + 1 === prev[type].length ? "" : []),
+      }));
+    },
+    [],
+  );
+
+  const onDeleteTag = useCallback(
+    (type: keyof Template) => (index: number) => () => {
+      setTemplate((prev) => ({
+        ...prev,
+        [type]: prev[type].filter((_, i) => i !== index),
+      }));
     },
     [],
   );
@@ -43,22 +50,22 @@ const App = () => {
           <TemplateSection
             title="場面・シチュエーション"
             tags={template.context}
-            onUpdate={(idx, val) => onUpdateTemplate("context", idx)(val)}
-            onDelete={() => {}}
+            onUpdate={onUpdateTag("context")}
+            onDelete={onDeleteTag("context")}
           />
           <hr className="border-gray-100" />
           <TemplateSection
             title="写っているもの・対象"
             tags={template.subject}
-            onUpdate={(idx, val) => onUpdateTemplate("subject", idx)(val)}
-            onDelete={() => {}}
+            onUpdate={onUpdateTag("subject")}
+            onDelete={onDeleteTag("subject")}
           />
           <hr className="border-gray-100" />
           <TemplateSection
             title="場所・地域"
             tags={template.place}
-            onUpdate={(idx, val) => onUpdateTemplate("place", idx)(val)}
-            onDelete={() => {}}
+            onUpdate={onUpdateTag("place")}
+            onDelete={onDeleteTag("place")}
           />
           <Preview template={template} />
         </div>

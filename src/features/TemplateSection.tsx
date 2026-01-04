@@ -7,8 +7,8 @@ import { type Tag } from "./template";
 type Props = {
   title: string;
   tags: Tag[];
-  onUpdate: (index: number, value: string) => void;
-  onDelete: (index: number) => void;
+  onUpdate: (index: number) => (value: string) => void;
+  onDelete: (index: number) => () => void;
 };
 
 export const TemplateSection = ({ title, tags, onUpdate, onDelete }: Props) => {
@@ -17,11 +17,11 @@ export const TemplateSection = ({ title, tags, onUpdate, onDelete }: Props) => {
       <h2 className="text-sm font-semibold text-gray-900">{title}</h2>
       <ul className="flex flex-col gap-y-2">
         {tags.map((tag, i) => (
-          <li key={tag} className="flex items-center gap-x-2">
-            <Input value={tag} onChange={(val) => onUpdate(i, val)} />
+          <li key={`${i}-${tag}`} className="group flex items-center gap-x-2">
+            <Input value={tag} onChange={onUpdate(i)} />
             <button
-              className="shrink-0 rounded-full p-2 transition-colors hover:bg-red-50 hover:text-red-500"
-              onClick={() => onDelete(i)}
+              className="shrink-0 rounded-full p-2 transition-colors group-last:invisible hover:bg-red-50 hover:text-red-500"
+              onClick={onDelete(i)}
             >
               <TrashIcon className="size-5 text-gray-300" />
             </button>
