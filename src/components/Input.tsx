@@ -37,7 +37,7 @@ export const Input = ({ value, onChange, sanitizer = (v) => v }: Props) => {
       <input
         className={clsx(
           "w-full py-2 pr-3 pl-10",
-          "bg-gray-100 text-sm placeholder-gray-500",
+          "bg-gray-100 placeholder-gray-500",
           "rounded-lg border border-transparent outline-none",
           "transition-colors focus:border-blue-300 focus:bg-white",
         )}

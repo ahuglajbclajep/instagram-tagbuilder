@@ -22,7 +22,7 @@ export const TemplateSelector = ({ onChange }: Props) => {
         <select
           className={clsx(
             "w-full py-2 pr-10 pl-3",
-            "cursor-pointer appearance-none bg-gray-50 text-sm font-medium",
+            "cursor-pointer appearance-none bg-gray-50 font-medium",
             "rounded-lg border border-gray-200 outline-none",
             "transition-colors focus:border-pink-500 focus:bg-white focus:ring-1 focus:ring-pink-500",
           )}

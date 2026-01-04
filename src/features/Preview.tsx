@@ -26,11 +26,11 @@ export const Preview = ({ tags }: Props) => {
     <section
       className={clsx(
         "flex flex-col gap-y-2",
-        "rounded-lg border border-slate-200/60 bg-slate-50 p-4",
+        "rounded-lg border border-gray-200/60 bg-gray-50 p-4",
       )}
     >
       <div className="flex items-center justify-between">
-        <h2 className="text-xs font-bold text-gray-400">出力されたタグ</h2>
+        <h2 className="text-xs font-bold text-gray-500">出力されたタグ</h2>
         <button
           className={clsx(
             "flex items-center gap-x-1 px-2 py-1",
@@ -47,7 +47,7 @@ export const Preview = ({ tags }: Props) => {
           {copied ? "コピーしました" : "コピー"}
         </button>
       </div>
-      <code className="font-mono text-sm leading-relaxed wrap-break-word text-blue-600">
+      <code className="font-mono leading-relaxed wrap-break-word text-blue-500">
         {tagText}
       </code>
     </section>

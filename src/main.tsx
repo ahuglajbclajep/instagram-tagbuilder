@@ -42,7 +42,7 @@ const App = () => {
     <div
       className={clsx(
         "min-h-screen bg-gray-50 px-4 py-8",
-        "font-sans text-neutral-800",
+        "font-sans text-sm text-gray-800",
       )}
     >
       <div className="mx-auto flex max-w-md flex-col gap-y-6">
