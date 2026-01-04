@@ -15,7 +15,7 @@ type Props = {
 export const CategoryEditor = ({ title, tags, onUpdate, onDelete }: Props) => {
   return (
     <section className="flex flex-col gap-y-2">
-      <h2 className="font-semibold text-text-strong">{title}</h2>
+      <h3 className="font-semibold text-text-strong">{title}</h3>
       <ul className="flex flex-col gap-y-2">
         {tags.concat("").map((tag, i) => (
           <li key={`${i}-${tag}`} className="group flex items-center gap-x-2">

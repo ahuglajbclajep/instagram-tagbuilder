@@ -33,11 +33,10 @@ export const Input = ({ value, onChange, sanitizer = (v) => v }: Props) => {
   }, []);
 
   return (
-    <div className="group/input relative grow">
+    <div className="group relative grow">
       <input
         className={clsx(
-          "w-full py-2 pr-3 pl-10",
-          "bg-bg-muted placeholder-gray-500",
+          "w-full bg-bg-muted py-2 pr-3 pl-10",
           "rounded-lg border border-transparent outline-none",
           "transition-colors focus:border-focus-soft focus:bg-bg",
         )}
@@ -54,8 +53,8 @@ export const Input = ({ value, onChange, sanitizer = (v) => v }: Props) => {
       >
         <PencilIcon
           className={clsx(
-            "size-4 text-gray-400",
-            "transition-colors group-focus-within/input:text-focus",
+            "size-4 text-icon",
+            "transition-colors group-focus-within:text-focus",
           )}
         />
       </div>

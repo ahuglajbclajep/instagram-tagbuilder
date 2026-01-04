@@ -46,7 +46,12 @@ const App = () => {
       )}
     >
       <div className="mx-auto flex max-w-md flex-col gap-y-6">
-        <div className="flex flex-col gap-y-6 rounded-xl border border-gray-100 bg-bg p-6 shadow-sm">
+        <div
+          className={clsx(
+            "flex flex-col gap-y-6 bg-bg p-6",
+            "rounded-xl border border-border-light shadow-sm",
+          )}
+        >
           <Header />
           <TemplateSelector onChange={setTags} />
           <CategoryEditor
@@ -55,14 +60,14 @@ const App = () => {
             onUpdate={onUpdateTag("context")}
             onDelete={onDeleteTag("context")}
           />
-          <hr className="border-gray-100" />
+          <hr className="border-border-light" />
           <CategoryEditor
             title="写っているもの・対象"
             tags={tags.subject}
             onUpdate={onUpdateTag("subject")}
             onDelete={onDeleteTag("subject")}
           />
-          <hr className="border-gray-100" />
+          <hr className="border-border-light" />
           <CategoryEditor
             title="場所・地域"
             tags={tags.place}

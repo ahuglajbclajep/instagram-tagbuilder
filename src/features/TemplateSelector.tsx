@@ -17,13 +17,13 @@ export const TemplateSelector = ({ onChange }: Props) => {
 
   return (
     <section className="flex flex-col gap-y-2">
-      <h2 className="text-xs font-bold text-gray-500">テンプレート</h2>
+      <h2 className="text-xs font-bold text-text-muted">テンプレート</h2>
       <div className="relative">
         <select
           className={clsx(
             "w-full py-2 pr-10 pl-3",
-            "cursor-pointer appearance-none bg-bg-light font-medium",
-            "rounded-lg border border-gray-200 outline-none",
+            "cursor-pointer bg-bg-light font-medium",
+            "appearance-none rounded-lg border border-border outline-none",
             "transition-colors focus:border-brand focus:bg-bg focus:ring-1 focus:ring-brand",
           )}
           onChange={onChangeTemplate}

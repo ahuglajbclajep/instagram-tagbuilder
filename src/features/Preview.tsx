@@ -26,7 +26,7 @@ export const Preview = ({ tags }: Props) => {
     <section
       className={clsx(
         "flex flex-col gap-y-2",
-        "rounded-lg border border-gray-200/60 bg-bg-light p-4",
+        "rounded-lg border border-border bg-bg-light p-4",
       )}
     >
       <div className="flex items-center justify-between">
