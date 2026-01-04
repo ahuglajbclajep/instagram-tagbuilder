@@ -1,7 +1,9 @@
+export type Tag = string;
+
 export type Template = {
-  context: string[];
-  subject: string[];
-  place: string[];
+  context: Tag[];
+  subject: Tag[];
+  place: Tag[];
 };
 
 export const templates: Record<string, Template> = {
