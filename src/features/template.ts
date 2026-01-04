@@ -8,9 +8,9 @@ export type Template = {
 
 export const templates: Record<string, Template> = {
   なし: {
-    context: [""],
-    subject: [""],
-    place: [""],
+    context: [],
+    subject: [],
+    place: [],
   },
   散歩: {
     context: ["散歩", "街歩き", "東京散歩"],

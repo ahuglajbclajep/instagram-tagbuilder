@@ -16,9 +16,9 @@ export const TemplateSection = ({ title, tags, onUpdate, onDelete }: Props) => {
     <section className="flex flex-col gap-y-2">
       <h2 className="text-sm font-semibold text-gray-900">{title}</h2>
       <ul className="flex flex-col gap-y-2">
-        {tags.map((tag, i) => (
+        {tags.concat("").map((tag, i) => (
           <li key={`${i}-${tag}`} className="group flex items-center gap-x-2">
-            <Input value={tag} onChange={onUpdate(i)} />
+            <Input value={tag} onChange={onUpdate(i)} sanitizer={sanitizer} />
             <button
               className="shrink-0 rounded-full p-2 transition-colors group-last:invisible hover:bg-red-50 hover:text-red-500"
               onClick={onDelete(i)}
@@ -31,3 +31,7 @@ export const TemplateSection = ({ title, tags, onUpdate, onDelete }: Props) => {
     </section>
   );
 };
+
+const sanitizer = (value: string) =>
+  // 文字、数字、絵文字、_ 以外の文字はタグでは無効
+  value.replace(/[^\p{L}\p{N}\p{Extended_Pictographic}_]/gu, "");

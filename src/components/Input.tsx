@@ -5,25 +5,32 @@ import { PencilIcon } from "@heroicons/react/24/outline";
 type Props = {
   value: string;
   onChange: (value: string) => void;
+  sanitizer?: (value: string) => string;
 };
 
-export const Input = ({ value, onChange }: Props) => {
+export const Input = ({ value, onChange, sanitizer = (v) => v }: Props) => {
   const onBlur = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
-      onChange(e.currentTarget.value);
-    },
-    [onChange],
-  );
-
-  const onKeyDown = useCallback(
-    (e: React.KeyboardEvent<HTMLInputElement>) => {
-      if (e.nativeEvent.isComposing || e.key !== "Enter") {
+      const sanitized = sanitizer(e.currentTarget.value);
+      // サニタイズ後の文字列が空になってしまったら、無効な入力として元の値を復元する
+      if (sanitized === "") {
+        e.currentTarget.value = value;
         return;
       }
-      onChange(e.currentTarget.value);
+
+      e.currentTarget.value = sanitized;
+      onChange(sanitized);
     },
-    [onChange],
+    [onChange, sanitizer, value],
   );
+
+  const onKeyDown = useCallback((e: React.KeyboardEvent<HTMLInputElement>) => {
+    // 補完以外のタイミングで Enter が押されたら確定とみなす
+    if (e.nativeEvent.isComposing || e.key !== "Enter") {
+      return;
+    }
+    e.currentTarget.blur();
+  }, []);
 
   return (
     <div className="group/input relative grow">

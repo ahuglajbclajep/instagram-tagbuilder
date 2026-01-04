@@ -18,9 +18,11 @@ const App = () => {
     (type: keyof Template) => (index: number) => (value: Tag) => {
       setTemplate((prev) => ({
         ...prev,
-        [type]: prev[type]
-          .map((tag, i) => (i === index ? value : tag))
-          .concat(index + 1 === prev[type].length ? "" : []),
+        [type]: [
+          ...prev[type].slice(0, index),
+          value,
+          ...prev[type].slice(index + 1),
+        ],
       }));
     },
     [],
