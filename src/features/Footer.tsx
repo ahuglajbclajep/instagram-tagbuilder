@@ -5,7 +5,7 @@ export const Footer = () => {
         href="https://github.com/ahuglajbclajep/instagram-tagbuilder"
         target="_blank"
         rel="noreferrer"
-        className="inline-flex gap-2 text-xs font-medium text-gray-400 transition-colors hover:text-gray-500"
+        className="inline-flex gap-2 text-xs font-medium text-text-soft transition-colors hover:text-text-muted"
       >
         <GithubIcon className="size-4" />
         View source on GitHub

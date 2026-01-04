@@ -1,1 +1,19 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+
+@theme {
+  --color-bg: var(--color-white);
+  --color-bg-light: var(--color-gray-50);
+  --color-bg-muted: var(--color-gray-100);
+  --color-text: var(--color-gray-800);
+  --color-text-soft: var(--color-gray-400);
+  --color-text-muted: var(--color-gray-500);
+  --color-text-strong: var(--color-gray-900);
+  --color-icon: var(--color-gray-400);
+  --color-focus: var(--color-blue-500);
+  --color-focus-soft: var(--color-blue-300);
+  --color-danger: var(--color-red-500);
+  --color-danger-light: var(--color-red-50);
+  --color-success: var(--color-green-500);
+  --color-success-light: var(--color-green-50);
+  --color-brand: var(--color-pink-500);
+}

@@ -22,9 +22,9 @@ export const TemplateSelector = ({ onChange }: Props) => {
         <select
           className={clsx(
             "w-full py-2 pr-10 pl-3",
-            "cursor-pointer appearance-none bg-gray-50 font-medium",
+            "cursor-pointer appearance-none bg-bg-light font-medium",
             "rounded-lg border border-gray-200 outline-none",
-            "transition-colors focus:border-pink-500 focus:bg-white focus:ring-1 focus:ring-pink-500",
+            "transition-colors focus:border-brand focus:bg-bg focus:ring-1 focus:ring-brand",
           )}
           onChange={onChangeTemplate}
         >
@@ -40,7 +40,7 @@ export const TemplateSelector = ({ onChange }: Props) => {
             "flex h-full items-center",
           )}
         >
-          <ChevronDownIcon className="size-4 text-gray-400" />
+          <ChevronDownIcon className="size-4 text-icon" />
         </div>
       </div>
     </section>

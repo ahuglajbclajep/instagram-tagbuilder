@@ -26,19 +26,19 @@ export const Preview = ({ tags }: Props) => {
     <section
       className={clsx(
         "flex flex-col gap-y-2",
-        "rounded-lg border border-gray-200/60 bg-gray-50 p-4",
+        "rounded-lg border border-gray-200/60 bg-bg-light p-4",
       )}
     >
       <div className="flex items-center justify-between">
-        <h2 className="text-xs font-bold text-gray-500">出力されたタグ</h2>
+        <h2 className="text-xs font-bold text-text-muted">出力されたタグ</h2>
         <button
           className={clsx(
             "flex items-center gap-x-1 px-2 py-1",
             "rounded-md text-xs font-medium transition-colors",
             copied
-              ? "bg-green-50 text-green-500"
-              : "bg-white text-gray-400 hover:bg-gray-100",
-            "disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-white",
+              ? "bg-success-light text-success"
+              : "bg-bg text-text-soft hover:bg-bg-muted",
+            "disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-bg",
           )}
           disabled={!tagText}
           onClick={onCopy}

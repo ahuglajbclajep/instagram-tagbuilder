@@ -41,12 +41,12 @@ const App = () => {
   return (
     <div
       className={clsx(
-        "min-h-screen bg-gray-50 px-4 py-8",
-        "font-sans text-sm text-gray-800",
+        "min-h-screen bg-bg-light px-4 py-8",
+        "font-sans text-sm text-text",
       )}
     >
       <div className="mx-auto flex max-w-md flex-col gap-y-6">
-        <div className="flex flex-col gap-y-6 rounded-xl border border-gray-100 bg-white p-6 shadow-sm">
+        <div className="flex flex-col gap-y-6 rounded-xl border border-gray-100 bg-bg p-6 shadow-sm">
           <Header />
           <TemplateSelector onChange={setTags} />
           <CategoryEditor
