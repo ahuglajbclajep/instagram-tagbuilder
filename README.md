@@ -1,83 +1,8 @@
-# my-react-template
+# hashtag-builder
 
-A simple React and TypeScript template for VS Code.
+A simple tool to build and manage hashtags for your social media posts.
+Pick a template, customize tags by category, and copy them with one click.
 
-```sh
-$ git clone -b template git@github.com:ahuglajbclajep/my-react-template.git REPOSITORY && cd $_
-$ npm i; npm run dev
+# License
 
-$ git branch -m main
-$ git remote set-url origin git@github.com:OWNER/REPOSITORY.git
-```
-
-## Additional Configuration
-
-<details>
-<summary>Using with clsx & prettier-plugin-tailwindcss</summary><br>
-
-See also:
-
-- <https://github.com/lukeed/clsx?tab=readme-ov-file#tailwind-support>
-- <https://github.com/tailwindlabs/prettier-plugin-tailwindcss>
-- <https://github.com/tailwindlabs/tailwindcss/discussions/7554>
-
-```sh
-$ npm i clsx
-$ npm i -D prettier-plugin-tailwindcss
-```
-
-[.vscode/settings.json](.vscode/settings.json)
-
-```diff
-{
-  /* Extension specific */
-+ "tailwindCSS.classFunctions": ["clsx"]
-}
-```
-
-.prettierrc.mjs
-
-```js
-/**
- * @type {import("prettier").Config}
- */
-const config = {
-  plugins: ["prettier-plugin-tailwindcss"],
-  tailwindFunctions: ["clsx"],
-};
-
-export default config;
-```
-
-[package.json](package.json)
-
-```diff
-{
-- "prettier": {}
-}
-```
-
-</details>
-
-<details>
-<summary>Using with gh-pages</summary><br>
-
-See also:
-
-```sh
-$ npm i -D gh-pages
-```
-
-[package.json](package.json)
-
-```diff
-{
-  "scripts": {
-    "preview": "vite preview",
-+   "deploy": "npm run build && gh-pages -d dist",
-    "lint:type": "tsc",
-  }
-}
-```
-
-</details>
+MIT

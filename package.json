@@ -6,6 +6,7 @@
     "dev": "vite --open",
     "build": "tsc -b && vite build",
     "preview": "vite preview --open",
+    "deploy": "npm run build && gh-pages -f -d dist",
     "lint:type": "tsc",
     "lint:eslint": "eslint --cache --cache-location node_modules/.cache/eslint/",
     "lint:format": "prettier . -c --cache"
@@ -25,6 +26,7 @@
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-react-hooks": "^7.0.1",
+    "gh-pages": "^6.3.0",
     "prettier": "^3.7.4",
     "prettier-plugin-tailwindcss": "^0.7.2",
     "tailwindcss": "^4.1.18",
