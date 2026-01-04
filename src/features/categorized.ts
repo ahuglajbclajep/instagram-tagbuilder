@@ -1,12 +1,13 @@
 export type Tag = string;
 
-export type Template = {
+// CategorizedTags の略
+export type Categorized = {
   context: Tag[];
   subject: Tag[];
   place: Tag[];
 };
 
-export const templates: Record<string, Template> = {
+export const templates: Record<string, Categorized> = {
   なし: {
     context: [],
     subject: [],
@@ -34,7 +35,7 @@ export const templates: Record<string, Template> = {
   },
 };
 
-export const toString = (edited: Template) =>
-  [...edited.context, ...edited.subject, ...edited.place]
+export const toString = (tags: Categorized) =>
+  [...tags.context, ...tags.subject, ...tags.place]
     .map((tag) => `#${tag}`)
     .join(" ");

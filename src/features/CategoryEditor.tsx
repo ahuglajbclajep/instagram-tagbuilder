@@ -2,7 +2,7 @@ import { TrashIcon } from "@heroicons/react/24/outline";
 
 import { Input } from "../components/Input";
 
-import { type Tag } from "./template";
+import { type Tag } from "./categorized";
 
 type Props = {
   title: string;
@@ -11,7 +11,7 @@ type Props = {
   onDelete: (index: number) => () => void;
 };
 
-export const TemplateSection = ({ title, tags, onUpdate, onDelete }: Props) => {
+export const CategoryEditor = ({ title, tags, onUpdate, onDelete }: Props) => {
   return (
     <section className="flex flex-col gap-y-2">
       <h2 className="text-sm font-semibold text-gray-900">{title}</h2>

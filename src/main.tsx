@@ -4,24 +4,24 @@ import { clsx } from "clsx/lite";
 import "./index.css";
 
 import { Header } from "./features/Header";
-import { Selector } from "./features/Selector";
-import { TemplateSection } from "./features/TemplateSection";
+import { TemplateSelector } from "./features/TemplateSelector";
+import { CategoryEditor } from "./features/CategoryEditor";
 import { Preview } from "./features/Preview";
 import { Footer } from "./features/Footer";
 
-import { templates, type Template, type Tag } from "./features/template";
+import { templates, type Categorized, type Tag } from "./features/categorized";
 
 const App = () => {
-  const [template, setTemplate] = useState<Template>(templates["なし"]);
+  const [tags, setTags] = useState<Categorized>(templates["なし"]);
 
   const onUpdateTag = useCallback(
-    (type: keyof Template) => (index: number) => (value: Tag) => {
-      setTemplate((prev) => ({
+    (category: keyof Categorized) => (index: number) => (tag: Tag) => {
+      setTags((prev) => ({
         ...prev,
-        [type]: [
-          ...prev[type].slice(0, index),
-          value,
-          ...prev[type].slice(index + 1),
+        [category]: [
+          ...prev[category].slice(0, index),
+          tag,
+          ...prev[category].slice(index + 1),
         ],
       }));
     },
@@ -29,10 +29,10 @@ const App = () => {
   );
 
   const onDeleteTag = useCallback(
-    (type: keyof Template) => (index: number) => () => {
-      setTemplate((prev) => ({
+    (category: keyof Categorized) => (index: number) => () => {
+      setTags((prev) => ({
         ...prev,
-        [type]: prev[type].filter((_, i) => i !== index),
+        [category]: prev[category].filter((_, i) => i !== index),
       }));
     },
     [],
@@ -48,28 +48,28 @@ const App = () => {
       <div className="mx-auto flex max-w-md flex-col gap-y-6">
         <div className="flex flex-col gap-y-6 rounded-xl border border-gray-100 bg-white p-6 shadow-sm">
           <Header />
-          <Selector onChange={setTemplate} />
-          <TemplateSection
+          <TemplateSelector onChange={setTags} />
+          <CategoryEditor
             title="場面・シチュエーション"
-            tags={template.context}
+            tags={tags.context}
             onUpdate={onUpdateTag("context")}
             onDelete={onDeleteTag("context")}
           />
           <hr className="border-gray-100" />
-          <TemplateSection
+          <CategoryEditor
             title="写っているもの・対象"
-            tags={template.subject}
+            tags={tags.subject}
             onUpdate={onUpdateTag("subject")}
             onDelete={onDeleteTag("subject")}
           />
           <hr className="border-gray-100" />
-          <TemplateSection
+          <CategoryEditor
             title="場所・地域"
-            tags={template.place}
+            tags={tags.place}
             onUpdate={onUpdateTag("place")}
             onDelete={onDeleteTag("place")}
           />
-          <Preview template={template} />
+          <Preview tags={tags} />
         </div>
         <Footer />
       </div>

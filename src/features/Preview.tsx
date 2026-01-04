@@ -1,12 +1,12 @@
 import { clsx } from "clsx/lite";
 
-import { type Template, toString } from "./template";
+import { type Categorized, toString } from "./categorized";
 
 type Props = {
-  template: Template;
+  tags: Categorized;
 };
 
-export const Preview = ({ template }: Props) => {
+export const Preview = ({ tags }: Props) => {
   return (
     <section
       className={clsx(
@@ -16,7 +16,7 @@ export const Preview = ({ template }: Props) => {
     >
       <h2 className="text-xs font-bold text-gray-400">出力されたタグ</h2>
       <code className="font-mono text-sm leading-relaxed wrap-break-word text-blue-600">
-        {toString(template)}
+        {toString(tags)}
       </code>
     </section>
   );

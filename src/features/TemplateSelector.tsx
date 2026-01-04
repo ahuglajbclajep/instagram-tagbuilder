@@ -2,13 +2,13 @@ import { useCallback } from "react";
 import { clsx } from "clsx/lite";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 
-import { templates, type Template } from "./template";
+import { templates, type Categorized } from "./categorized";
 
 type Props = {
-  onChange: (template: Template) => void;
+  onChange: (template: Categorized) => void;
 };
 
-export const Selector = ({ onChange }: Props) => {
+export const TemplateSelector = ({ onChange }: Props) => {
   const onChangeTemplate = useCallback(
     (e: React.ChangeEvent<HTMLSelectElement>) =>
       onChange(templates[e.target.value]),
