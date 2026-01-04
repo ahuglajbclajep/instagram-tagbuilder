@@ -47,7 +47,7 @@ export const Preview = ({ tags }: Props) => {
           {copied ? "コピーしました" : "コピー"}
         </button>
       </div>
-      <code className="font-mono leading-relaxed wrap-break-word text-blue-500">
+      <code className="font-mono leading-relaxed wrap-break-word text-blue-600">
         {tagText}
       </code>
     </section>
