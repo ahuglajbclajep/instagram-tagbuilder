@@ -1,5 +1,5 @@
 import { clsx } from "clsx/lite";
-import { TrashIcon } from "@heroicons/react/24/outline";
+import { TrashIcon } from "@primer/octicons-react";
 
 import { Input } from "../components/Input";
 
@@ -27,7 +27,7 @@ export const CategoryEditor = ({ title, tags, onUpdate, onDelete }: Props) => {
               )}
               onClick={onDelete(i)}
             >
-              <TrashIcon className="size-5 text-icon" />
+              <TrashIcon size={24} className="size-5 text-icon" />
             </button>
           </li>
         ))}

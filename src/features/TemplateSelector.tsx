@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { clsx } from "clsx/lite";
-import { ChevronDownIcon } from "@heroicons/react/24/outline";
+import { ChevronDownIcon } from "@primer/octicons-react";
 
 import { templates, type Categorized } from "./categorized";
 

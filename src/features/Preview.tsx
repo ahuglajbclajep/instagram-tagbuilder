@@ -1,6 +1,6 @@
 import { useState, useCallback, useMemo } from "react";
 import { clsx } from "clsx/lite";
-import { ClipboardDocumentIcon } from "@heroicons/react/24/outline";
+import { CopyIcon } from "@primer/octicons-react";
 
 import { type Categorized, toString } from "./categorized";
 
@@ -43,7 +43,7 @@ export const Preview = ({ tags }: Props) => {
           disabled={!tagText}
           onClick={onCopy}
         >
-          <ClipboardDocumentIcon className="size-4" />
+          <CopyIcon className="size-4" />
           {copied ? "コピーしました" : "コピー"}
         </button>
       </div>

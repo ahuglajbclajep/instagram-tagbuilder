@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { clsx } from "clsx/lite";
-import { PencilIcon } from "@heroicons/react/24/outline";
+import { PencilIcon } from "@primer/octicons-react";
 
 type Props = {
   value: string;

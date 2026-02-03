@@ -6,13 +6,13 @@
     "dev": "vite --open",
     "build": "tsc -b && vite build",
     "preview": "vite preview --open",
-    "deploy": "npm run build && gh-pages -f -d dist",
+    "deploy": "npm run build && gh-pages -d dist -v '.*/**' -f",
     "lint:type": "tsc",
     "lint:eslint": "eslint --cache --cache-location node_modules/.cache/eslint/",
     "lint:format": "prettier . -c --cache"
   },
   "dependencies": {
-    "@heroicons/react": "^2.2.0",
+    "@primer/octicons-react": "^19.21.2",
     "clsx": "^2.1.1",
     "react": "^19.2.3",
     "react-dom": "^19.2.3"
