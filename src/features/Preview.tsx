@@ -33,8 +33,8 @@ export const Preview = ({ tags }: Props) => {
         <h2 className="text-xs font-bold text-text-muted">出力されたタグ</h2>
         <button
           className={clsx(
-            "flex items-center gap-x-1 px-2 py-1",
-            "rounded-md text-xs font-medium transition-colors",
+            "flex items-center gap-x-1 px-1.5 py-0.5",
+            "rounded-sm text-xs font-medium transition-colors",
             copied
               ? "bg-success-light text-success"
               : "bg-bg text-text-soft hover:bg-bg-muted",
@@ -43,11 +43,11 @@ export const Preview = ({ tags }: Props) => {
           disabled={!tagText}
           onClick={onCopy}
         >
-          <CopyIcon className="size-4" />
-          {copied ? "コピーしました" : "コピー"}
+          <CopyIcon className="size-3" />
+          <span>{copied ? "コピーしました" : "コピー"}</span>
         </button>
       </div>
-      <code className="font-mono leading-relaxed wrap-break-word text-blue-600">
+      <code className="font-mono text-sm leading-relaxed wrap-break-word text-blue-600">
         {tagText}
       </code>
     </section>
