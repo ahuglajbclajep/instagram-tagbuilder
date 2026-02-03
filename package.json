@@ -6,7 +6,7 @@
     "dev": "vite --open",
     "build": "tsc -b && vite build",
     "preview": "vite preview --open",
-    "deploy": "npm run build && gh-pages -d dist -v '.*/**' -f",
+    "deploy": "npm run build && gh-pages -d dist -v '.*' -f",
     "lint:type": "tsc",
     "lint:eslint": "eslint --cache --cache-location node_modules/.cache/eslint/",
     "lint:format": "prettier . -c --cache"
